@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Alpaca Roofing — Inspection Report Builder</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 <style>
   :root{
     --navy:#0b3a6b;--navy-soft:#1c4f86;--navy-ink:#15273d;--steel:#6f93b8;
@@ -179,13 +178,9 @@
   <div class="brand"><img src="data:image/png;base64,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" alt="Alpaca Roofing"><span>Inspection Report Builder<small>Alpaca Roofing</small></span></div>
   <div class="spacer"></div>
   <button class="btn btn-ghost" onclick="window.location.reload()">Start new</button>
-  <button class="btn btn-ghost" id="printBtn" onclick="window.print()" title="Opens your browser's print dialog — choose “Save as PDF”">
-    <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M6 9V3h12v6M6 18H4v-7h16v7h-2M8 14h8v6H8z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
-    Print
-  </button>
-  <button class="btn btn-primary" id="pdfBtn" onclick="downloadPdf()">
-    <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    Download PDF
+  <button class="btn btn-primary" id="printBtn" onclick="window.print()" title="Opens your browser's print dialog — choose “Save as PDF” as the destination">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M6 9V3h12v6M6 18H4v-7h16v7h-2M8 14h8v6H8z" stroke="#fff" stroke-width="1.7" stroke-linejoin="round"/></svg>
+    Print / Save as PDF
   </button>
 </div>
 
@@ -516,9 +511,9 @@ function init(){
   state.water.severity=def0; setWaterSegSel();
   updateCondHint(); buildFindingList(); buildWaterSources(); refreshRec();
 
-  // If we're inside the embedded preview, downloads may be blocked by the sandbox.
+  // The embedded in-app preview blocks the print dialog; the deployed site / a local file is fine.
   if(window.self !== window.top){
-    showResult("Heads up: the in-app preview can block file downloads. If Download PDF doesn\u2019t save a file, open this report in your phone or computer browser \u2014 it works normally there.");
+    showResult("Heads up: this in-app preview can\u2019t open the print dialog. Use your published link (or open the downloaded file in your browser) and the Print / Save as PDF button works normally there.");
   }
 }
 
@@ -834,49 +829,6 @@ function showResult(html, kind){
   el.className="pdf-result show"+(kind==="err"?" err":"");
   el.innerHTML='<span>'+html+'</span><button class="x" title="Dismiss" onclick="this.parentElement.classList.remove(\'show\')">×</button>';
 }
-function savePdf(){
-  // The browser's native print mishandles page margins in some setups and clips the
-  // left edge, so we always build the file ourselves — it renders the full width reliably.
-  downloadPdf();
-}
-async function downloadPdf(){
-  const btn=document.getElementById("pdfBtn");
-  if(typeof html2pdf==="undefined"){
-    showResult("The PDF generator hasn\u2019t loaded yet — it needs an internet connection. Wait a moment and tap Download PDF again.","err");
-    return;
-  }
-  const orig=btn.innerHTML; btn.disabled=true; btn.style.opacity=".7"; btn.textContent="Generating…";
-  // Render a clean clone at a fixed width with no padding (the page margin below handles
-  // spacing), anchored top-left, so the header isn't pushed down and nothing clips.
-  const holder=document.createElement("div");
-  holder.style.cssText="position:fixed;left:0;top:0;z-index:-1;background:#ffffff;width:760px;overflow:hidden";
-  const clone=document.getElementById("paper").cloneNode(true);
-  clone.style.cssText="width:760px;max-width:none;margin:0;padding:0;box-shadow:none;border-radius:0;background:#ffffff;overflow:hidden";
-  holder.appendChild(clone); document.body.appendChild(holder);
-  const opt={
-    margin:[12,12,14,12],
-    filename:reportFilename(),
-    image:{type:"jpeg",quality:.92},
-    html2canvas:{scale:2,useCORS:true,backgroundColor:"#ffffff"},
-    jsPDF:{unit:"mm",format:"letter",orientation:"portrait"},
-    pagebreak:{mode:["css"],before:[".appendix"],after:[".apx-page"],avoid:[".item",".imgs-table tr",".apx-page"]}
-  };
-  try{
-    const blob=await html2pdf().set(opt).from(clone).outputPdf("blob");
-    const url=URL.createObjectURL(blob);
-    const fname=reportFilename();
-    const a=document.createElement("a"); a.href=url; a.download=fname;
-    document.body.appendChild(a); a.click(); a.remove();
-    showResult('Your PDF <b>'+esc(fname)+'</b> is ready. If it didn\u2019t save automatically, <a href="'+url+'" download="'+esc(fname)+'">tap here to download it</a>.');
-  }catch(err){
-    console.error(err);
-    showResult("Couldn\u2019t build the PDF here ("+esc(err.message)+"). Open this report in your browser and try again.","err");
-  }finally{
-    holder.remove();
-    btn.disabled=false; btn.style.opacity="1"; btn.innerHTML=orig;
-  }
-}
-
 init();
 </script>
 </body>
